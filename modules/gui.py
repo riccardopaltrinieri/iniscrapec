@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Tk, Label, Entry, Button, END
 from threading import Thread
 from time import sleep
 
@@ -10,34 +10,39 @@ class RootWindow:
         self.root_window.title("TAXtoPEC - CherryNpl")
         self.root_window.geometry("380x150")
 
-        self.welcome_label = Label(self.root_window, text="Welcome to CherryNpl PEC scraper",
-                                   font=("arial", 16, "bold"))
-        self.env_label = Label(self.root_window, text="Environment variables in the .env file are missing or wrong",
-                               fg="red", font=("arial", 12))
-        self.searching_label = Label(self.root_window, text="Searching...", font=("arial", 12))
+        self.searching_label = Label(self.root_window,
+                                     text="Searching...",
+                                     font=("arial", 12))
 
         if func == 'MISSING_KEY':
             self.root_window.geometry("450x150")
-            self.welcome_label.grid(row=1)
-            self.env_label.grid(row=2)
+            Label(self.root_window,
+                  text="Environment variables in the .env file are missing or wrong",
+                  fg="red", font=("arial", 12)).grid(row=1)
             self.root_window.mainloop()
         else:
-            self.insert_label = Label(self.root_window, text="Insert the TAX code of the company: ", font=("arial", 12))
-            self.error_label = Label(self.root_window, text="You should enter a valid TAX Code", fg="red",
+            self.insert_label = Label(self.root_window,
+                                      text="Insert the TAX code of the company: ",
+                                      font=("arial", 12))
+            self.error_label = Label(self.root_window,
+                                     text="You should enter a valid TAX Code", fg="red",
                                      font=("arial", 12))
             self.found = False
 
             self.tax_input = Entry(self.root_window)
             self.tax_input.bind('<Return>', lambda x: self.thread_runner(func))
 
-            self.next_button = Button(self.root_window, text="Start", command=self.search)
+            self.next_button = Button(self.root_window,
+                                      text="Start",
+                                      command=self.search)
             self.submit_button = Button(self.root_window,
                                         text="Search",
                                         command=lambda: self.thread_runner(func))
             self.start()
 
     def start(self):
-        self.welcome_label.grid(row=1)
+        Label(self.root_window, text="Welcome to CherryNpl PEC scraper",
+              font=("arial", 16, "bold")).grid(row=1)
         self.next_button.grid(row=2)
         self.root_window.mainloop()
 
@@ -64,7 +69,7 @@ class RootWindow:
             if func == 'MISSING_KEY':
                 self.missing_var()
             pec = func(code.get())
-            if pec != 0 and pec != 'MISSING_KEY':
+            if pec not in (0, 'MISSING_KEY'):
                 print(pec)
                 self.found = True
                 self.searching_label['text'] = 'TAX: ' + code.get() + ', PEC: ' + pec
@@ -84,7 +89,8 @@ class RootWindow:
     def missing_var(self):
         self.root_window.geometry("450x150")
         self.searching_label.grid_forget()
-        self.env_label.grid(row=2)
+        Label(self.root_window, text="Environment variables in the .env file are missing or wrong",
+              fg="red", font=("arial", 12)).grid(row=2)
 
     def thread_runner(self, func):
         Thread(target=self.validate_input, args=(func, self.tax_input)).start()

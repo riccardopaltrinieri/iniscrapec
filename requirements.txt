@@ -4,3 +4,5 @@ mechanize~=0.4.5
 pymongo~=3.11.0
 dnspython~=2.0.0
 python_dotenv~=0.14.0
+python-dotenv~=0.14.0
+setuptools~=50.3.0
