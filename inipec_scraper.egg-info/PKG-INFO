@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: inipec-scraper
+Version: 0.0.1
+Summary: Web scraper that take a TAX Code and return the PEC address of the company
+Home-page: https://github.com/riccardopaltrinieri/inipec-scraper
+Author: Riccardo Paltrinieri
+Author-email: paltrinieri.rg@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
