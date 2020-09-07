@@ -1,9 +1,13 @@
-from modules.dao import Dao
-from modules.gui import RootWindow
-from modules.scraper import find_pec
+from os import getenv, environ
+from modules import Dao
+from modules import RootWindow
+from modules import find_pec
 
 
 def main():
+    for var in {'CAP_KEY', 'DB_USER', 'DB_PWD', 'DATA_SITEKEY', 'URL', 'TAX_EXAMPLE'}:
+        if getenv(var) == '':
+            environ[var] = input('Insert ' + var + ': ')
     gui = RootWindow(submit_tax)
 
 
