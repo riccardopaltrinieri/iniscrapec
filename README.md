@@ -17,18 +17,36 @@ iniscrapec uses a number of open source projects to work properly:
 
 And iniscrapec itself is open source with a [public repository](https://github.com/riccardopaltrinieri/iniscrapec)
 on GitHub.
+
+Also it uses a third part service to solve the reCaptcha "I am not a robot"
+
+* [[2captcha]](https://2captcha.com/)
  
 ### Installation
 
 iniscrapec requires [python 3.7](https://https://www.python.org/) to run.       
+
 How to get it from git
 ```sh
 $ git clone https://github.com/riccardopaltrinieri/iniscrapec.git
 ```
-How to install it with pip
-```sh
-$ pip install iniscrapec==0.0.2
+<sub> 
+You can also install it from pip with
+*pip install iniscrapec* but something doesn't work well
+</sub>
+
+#### After installation
+You need to fill the environment variables in the .env file:    
 ```
+CAP_KEY = "" # The API key given from the site 2capthca.com
+DB_USER = "" # The user of the Mongo DB 
+DB_PWD = "" # The password of the Mongo DB
+DATA_SITEKEY = "" # The captcha code as written in the step 2 of the link below
+URL = "https://www.inipec.gov.it/cerca-pec/-/pecs/companies" #the gov website where to search the pec
+TAX_EXAMPLE = "" # Variable used for testing and debugging
+```
+[link on how to use 2captcha](https://2captcha.com/2captcha-api#solving_recaptchav2_new)        
+
 How to run it with a simple [tkinter] gui
 ```sh
 $ cd .\path\of\repo\iniscrapec
