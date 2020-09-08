@@ -4,10 +4,10 @@ with open("README.md", "r") as fh:
     long_descript = fh.read()
 
 setup(
-    name='inipec-scraper',
-    version='0.0.2',
+    name='iniscrapec',
+    version='0.0.1',
     packages=find_packages(),
-    url='https://github.com/riccardopaltrinieri/inipec-scraper',
+    url='https://github.com/riccardopaltrinieri/iniscrapec',
     license='MIT',
     author='Riccardo Paltrinieri',
     author_email='paltrinieri.rg@gmail.com',

@@ -1,11 +1,11 @@
-# inipec-scraper
+# iniscrapec
 
-Inipec-scaper is a simple scraper project that take a TAX Code of a company and return the PEC address 
+iniscrapec is a simple scraper project that take a TAX Code of a company and return the PEC address 
 of it
 
 ### Tech
 
-inipec-scraper uses a number of open source projects to work properly:
+iniscrapec uses a number of open source projects to work properly:
 
 * [pip]==20.2.2
 * [beautifulsoup4]~=4.9.1
@@ -15,28 +15,28 @@ inipec-scraper uses a number of open source projects to work properly:
 * [python_dotenv]~=0.14.0
 * [setuptools]~=50.3.0
 
-And inipec-scraper itself is open source with a [public repository](https://github.com/riccardopaltrinieri/inipec-scraper)
+And iniscrapec itself is open source with a [public repository](https://github.com/riccardopaltrinieri/iniscrapec)
 on GitHub.
  
 ### Installation
 
-inipec-scraper requires [python 3.7](https://https://www.python.org/) to run.       
+iniscrapec requires [python 3.7](https://https://www.python.org/) to run.       
 How to get it from git
 ```sh
-$ git clone https://github.com/riccardopaltrinieri/inipec-scraper.git
+$ git clone https://github.com/riccardopaltrinieri/iniscrapec.git
 ```
 How to install it with pip
 ```sh
-$ pip install inipec-scraper==0.0.2
+$ pip install iniscrapec==0.0.2
 ```
 How to run it with a simple [tkinter] gui
 ```sh
-$ cd .\path\of\repo\inipec-scraper
-$ python3 inipec-scraper.py
+$ cd .\path\of\repo\iniscrapec
+$ python3 iniscrapec.py
 ```
 You can also use only the scraper code with
 ```sh
-$ cd .\inipec-scraper\modules
+$ cd .\iniscrapec\modules
 $ python3 scraper.py
 ```
 

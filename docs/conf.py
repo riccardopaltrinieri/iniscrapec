@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'inipec-scraper'
+project = 'iniscrapec'
 copyright = '2020, Riccardo Paltrinieri'
 author = 'Riccardo Paltrinieri'
 
