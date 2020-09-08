@@ -21,7 +21,9 @@ class Dao:
             try:
                 self.collection.find_one({})
             except OperationFailure:
-                self.client = None
+                self.client = 'WRONG_KEY'
+        else:
+            self.client = 'MISSING_KEY'
 
     def contains(self, key):
         """

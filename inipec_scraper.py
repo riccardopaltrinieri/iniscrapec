@@ -1,17 +1,8 @@
 import sys
 from os import getenv, environ
+from dotenv import load_dotenv
 
 from modules import Dao, find_pec, RootWindow
-
-
-def main():
-    """ Main function of the package,
-        It checks the env variables and starts the gui"""
-
-    for var in {'CAP_KEY', 'DB_USER', 'DB_PWD', 'DATA_SITEKEY', 'URL', 'TAX_EXAMPLE'}:
-        if getenv(var) == '':
-            environ[var] = input(var + 'is missing, please insert it: ')
-    RootWindow(submit_tax)
 
 
 def memoize(func):
@@ -23,7 +14,11 @@ def memoize(func):
     :return: the result of the function (stored or not)
     """
     database = Dao()
-    if database.client is None:
+    if database.client in ('MISSING_KEY', 'WRONG_KEY'):
+        if database.client == 'WRONG_KEY':
+            print("The username or password for database in the .env file is wrong")
+        else:
+            print("The username or password for database in the .env file is missing")
         return 'MISSING_KEY'
 
     def helper(code):
@@ -38,12 +33,17 @@ def memoize(func):
     return helper
 
 
-@memoize
-def submit_tax(tax_code):
-    """ Just call the corresponding method in the scraper module"""
-    return find_pec(tax_code)
+if __name__ == '__main__':
 
+    load_dotenv()
+    for var in {'CAP_KEY', 'DB_USER', 'DB_PWD', 'DATA_SITEKEY', 'URL', 'TAX_EXAMPLE'}:
+        key = getenv(var)
+        if key is None or key == '':
+            print(var + ' in the .env file is missing.')
+            environ[var] = input('Write it in the file to save it or enter it just for this time: ')
 
-main()
+    mem_findpec = memoize(find_pec)
+    RootWindow(mem_findpec)
+
 
 sys.exit()

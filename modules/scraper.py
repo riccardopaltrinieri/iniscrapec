@@ -70,3 +70,8 @@ def solve_captcha(data_sitekey):
 
     print('Captcha token obtained: ' + token[0:20] + '...')
     return token.split("|")[1]
+
+
+if __name__ == '__main__':
+    print("This is a PEC scraper, please enter the TAX code of a company: ")
+    find_pec(input())
