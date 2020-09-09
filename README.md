@@ -41,6 +41,7 @@ CAP_KEY = "" # The API key given from the site 2capthca.com
 DB_USER = "" # The user of the Mongo DB 
 DB_PWD = "" # The password of the Mongo DB
 DATA_SITEKEY = "" # The captcha code as written in the step 2 of the link below
+				  # now it's 6Lf-0UAUAAAAAHdt6Gc54MkKXzoyV1iMzX7L55V9 but it could change
 URL = "https://www.inipec.gov.it/cerca-pec/-/pecs/companies" #the gov website where to search the pec
 TAX_EXAMPLE = "" # Variable used for testing and debugging
 ```
