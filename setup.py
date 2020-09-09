@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='iniscrapec',
-    version='0.0.1',
+    version='0.0.4',
     packages=find_packages(),
     url='https://github.com/riccardopaltrinieri/iniscrapec',
     license='MIT',

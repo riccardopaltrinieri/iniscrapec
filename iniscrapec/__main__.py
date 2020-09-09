@@ -46,4 +46,4 @@ if __name__ == '__main__':
     RootWindow(mem_findpec)
 
 
-sys.exit()
+    sys.exit()

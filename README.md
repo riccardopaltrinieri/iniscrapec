@@ -30,11 +30,10 @@ How to get it from git
 ```sh
 $ git clone https://github.com/riccardopaltrinieri/iniscrapec.git
 ```
-<sub> 
-You can also install it from pip with
-*pip install iniscrapec* but something doesn't work well
-</sub>
-
+How to get it from pip
+```sh
+$ pip install iniscrapec
+```
 #### After installation
 You need to fill the environment variables in the .env file:    
 ```
