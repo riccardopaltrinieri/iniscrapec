@@ -2,5 +2,7 @@
 /tests
 /dist
 /iniscrapec.egg-info
+/iniscrapec/__pycache__
+/iniscrapec/modules/__pycache__
 *.env
 *.pptx

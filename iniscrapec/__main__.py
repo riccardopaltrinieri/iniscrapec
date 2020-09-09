@@ -45,5 +45,4 @@ if __name__ == '__main__':
     mem_findpec = memoize(find_pec)
     RootWindow(mem_findpec)
 
-
     sys.exit()

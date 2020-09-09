@@ -16,7 +16,7 @@ def find_pec(tax_code):
 
     # Solving of the captcha code using a third part service by 2captcha.com
     data_sitekey = getenv('DATA_SITEKEY')
-    captcha_token = solve_captcha(data_sitekey)
+    captcha_token = solve_captcha()
     if captcha_token == 'MISSING_KEY':
         return captcha_token
 
@@ -36,13 +36,14 @@ def find_pec(tax_code):
     return label.next_sibling.string
 
 
-def solve_captcha(data_sitekey):
+def solve_captcha():
     """request the captcha solving from the website 2captcha.com"""
 
     # Uses the API Key stored in the .env file (If you are not the developer you need to insert it)
     load_dotenv()
+    data_sitekey = getenv('DATA_SITEKEY')
     cap_key = getenv('CAP_KEY')
-    if cap_key == '':
+    if cap_key == '' or data_sitekey == '':
         return 'MISSING_KEY'
 
     url = 'https://2captcha.com/in.php?' \
@@ -52,8 +53,10 @@ def solve_captcha(data_sitekey):
           '&googlekey=' + data_sitekey
 
     # the site will return the id of the captcha element
-    response = request.urlopen(url).read()
-    captcha_id = response.decode("ascii").split("|")[1]
+    response = request.urlopen(url).read().decode("ascii")
+    if response[0:5] == 'ERROR':
+        return 'MISSING_KEY'
+    captcha_id = response.split("|")[1]
 
     # Actual solving of the captcha
     url = 'https://2captcha.com/res.php?' \
@@ -74,4 +77,8 @@ def solve_captcha(data_sitekey):
 
 if __name__ == '__main__':
     print("This is a PEC scraper, please enter the TAX code of a company: ")
-    find_pec(input())
+    pec = find_pec(input())
+    if pec != 0:
+        print(pec)
+    else:
+        print('PEC not found')
