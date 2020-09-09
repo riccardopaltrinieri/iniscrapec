@@ -34,7 +34,7 @@ How to get it from pip
 ```sh
 $ pip install iniscrapec
 ```
-#### After installation
+### After installation
 You need to fill the environment variables in the .env file:    
 ```
 CAP_KEY = "" # The API key given from the site 2capthca.com
@@ -48,12 +48,17 @@ TAX_EXAMPLE = "" # Variable used for testing and debugging
 
 How to run it with a simple [tkinter] gui
 ```sh
-$ cd .\path\of\repo\iniscrapec
-$ python3 iniscrapec.py
+(if installed with pip)
+$ python3 -m iniscrapec
+```
+or
+```sh
+$ cd path\of\repo\iniscrapec
+$ python3 __main__.py
 ```
 You can also use only the scraper code with
 ```sh
-$ cd .\iniscrapec\modules
+$ cd path\iniscrapec\modules
 $ python3 scraper.py
 ```
 
