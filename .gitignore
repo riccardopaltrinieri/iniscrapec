@@ -1,3 +1,6 @@
 /.idea
 /tests
-.env
+/dist
+/iniscrapec.egg-info
+*.env
+*.pptx
